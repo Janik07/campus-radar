@@ -1,0 +1,30 @@
+# Render Blueprint: one web service (API + website + Telegram bot).
+services:
+  - type: web
+    name: campus-radar
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CRON_SECRET
+        generateValue: true
+      - key: PUBLIC_URL
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: DEMO_MODE
+        value: "true"
+      - key: EMAIL_DOMAIN
+        value: astanait.edu.kz
+      - key: APP_TIMEZONE
+        value: Asia/Almaty

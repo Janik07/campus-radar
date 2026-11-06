@@ -1,0 +1,416 @@
+[
+ {
+  "name": "AITU Arm-Wrestling",
+  "slug": "aitu-arm-wrestling",
+  "category": "Sport",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/+Ag5qK-idqxJmYWI6"
+ },
+ {
+  "name": "AITU Electronics",
+  "slug": "aitu-electronics",
+  "category": "Tech",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aituelectronics"
+ },
+ {
+  "name": "AITU Gaming",
+  "slug": "aitu-gaming",
+  "category": "Games",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aitugaming"
+ },
+ {
+  "name": "AITU JCA",
+  "slug": "aitu-jca",
+  "category": "Culture",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/jcaaitunews"
+ },
+ {
+  "name": "AITU KCA",
+  "slug": "aitu-kca",
+  "category": "Culture",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/kcaaitunews"
+ },
+ {
+  "name": "AITU LIVE",
+  "slug": "aitu-live",
+  "category": "Media",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aitulive"
+ },
+ {
+  "name": "AITU Mafia",
+  "slug": "aitu-mafia",
+  "category": "Games",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/+IUXiilOfwgl4OGRi"
+ },
+ {
+  "name": "AITU Orchestra",
+  "slug": "aitu-orchestra",
+  "category": "Music",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aitu_orchestra"
+ },
+ {
+  "name": "AITU Running",
+  "slug": "aitu-running",
+  "category": "Sport",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aitu_running"
+ },
+ {
+  "name": "AITU Table Tennis",
+  "slug": "aitu-table-tennis",
+  "category": "Sport",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/+bXl3W8uNh_80ZWZi"
+ },
+ {
+  "name": "AITU VOLUNTEERS",
+  "slug": "aitu-volunteers",
+  "category": "Social",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/+cfl2RfYnpMEwYzRi"
+ },
+ {
+  "name": "Anime Club",
+  "slug": "anime-club",
+  "category": "Culture",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aituanimeclub"
+ },
+ {
+  "name": "ART Club",
+  "slug": "art-club",
+  "category": "Arts",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": ""
+ },
+ {
+  "name": "Basketball Club",
+  "slug": "basketball-club",
+  "category": "Sport",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/+5C3wxXgJAbMwNDVi"
+ },
+ {
+  "name": "Board Games",
+  "slug": "board-games",
+  "category": "Games",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/AITU_board_games"
+ },
+ {
+  "name": "Buddy",
+  "slug": "buddy",
+  "category": "Social",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": ""
+ },
+ {
+  "name": "Calisthenics Club",
+  "slug": "calisthenics-club",
+  "category": "Sport",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aitu_calisthenics_news"
+ },
+ {
+  "name": "Cheerleading",
+  "slug": "cheerleading",
+  "category": "Sport",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": ""
+ },
+ {
+  "name": "Chess Club",
+  "slug": "chess-club",
+  "category": "Games",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/+9TPhXl7nug81NTVi"
+ },
+ {
+  "name": "Coffee-Philo",
+  "slug": "coffee-philo",
+  "category": "Intellectual",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/CoffeePhiloAITU"
+ },
+ {
+  "name": "Cycling Club",
+  "slug": "cycling-club",
+  "category": "Sport",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/+2SU4Bww17HplMjUy"
+ },
+ {
+  "name": "Dance Club",
+  "slug": "dance-club",
+  "category": "Arts",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aitudanceclubb"
+ },
+ {
+  "name": "DC Princip",
+  "slug": "dc-princip",
+  "category": "Intellectual",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/Princip_Debate"
+ },
+ {
+  "name": "DenkDeutsch",
+  "slug": "denkdeutsch",
+  "category": "Culture",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/denkdeutschaituclub"
+ },
+ {
+  "name": "Devine",
+  "slug": "devine",
+  "category": "Social",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/devineaitu"
+ },
+ {
+  "name": "Game-Dev Club",
+  "slug": "game-dev-club",
+  "category": "Tech",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/gdcaitu"
+ },
+ {
+  "name": "GDSC",
+  "slug": "gdsc",
+  "category": "Tech",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/gdsc_aitu_chat"
+ },
+ {
+  "name": "Hustle",
+  "slug": "hustle",
+  "category": "Career",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aitu_hustle_updates"
+ },
+ {
+  "name": "Intellectum",
+  "slug": "intellectum",
+  "category": "Intellectual",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/intellectumgames_kz"
+ },
+ {
+  "name": "Jurek Charity",
+  "slug": "jurek-charity",
+  "category": "Social",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": ""
+ },
+ {
+  "name": "Music Club",
+  "slug": "music-club",
+  "category": "Music",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aitumusicclub"
+ },
+ {
+  "name": "Ombudsman",
+  "slug": "ombudsman",
+  "category": "Social",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aitu_alliance"
+ },
+ {
+  "name": "PsyClub",
+  "slug": "psyclub",
+  "category": "Social",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/psy_club_aitu"
+ },
+ {
+  "name": "Sanaly urpaq",
+  "slug": "sanaly-urpaq",
+  "category": "Social",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": ""
+ },
+ {
+  "name": "SEDS",
+  "slug": "seds",
+  "category": "Tech",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/sedsaitu"
+ },
+ {
+  "name": "SËRIN Book/Literature Club",
+  "slug": "serin-book-literature-club",
+  "category": "Intellectual",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/+7NFHVVi_MUw1MjQy"
+ },
+ {
+  "name": "SIAM",
+  "slug": "siam",
+  "category": "Career",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/SIAM_AITU"
+ },
+ {
+  "name": "TEDx",
+  "slug": "tedx",
+  "category": "Intellectual",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/tedxrecruitment"
+ },
+ {
+  "name": "The Vocal Club",
+  "slug": "the-vocal-club",
+  "category": "Music",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/tvc_aitu00"
+ },
+ {
+  "name": "TYF.Media",
+  "slug": "tyf-media",
+  "category": "Media",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/tyfzhurekten"
+ },
+ {
+  "name": "Volleyball Club",
+  "slug": "volleyball-club",
+  "category": "Sport",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/aituvolleyy"
+ },
+ {
+  "name": "CORE",
+  "slug": "core",
+  "category": "Tech",
+  "status": "active",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/core_aitu"
+ },
+ {
+  "name": "K I N O Club",
+  "slug": "k-i-n-o-club",
+  "category": "Arts",
+  "status": "probation",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": "https://t.me/cinephile_aitu"
+ },
+ {
+  "name": "Cooking Club",
+  "slug": "cooking-club",
+  "category": "Social",
+  "status": "frozen",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": ""
+ },
+ {
+  "name": "MUN",
+  "slug": "mun",
+  "category": "Intellectual",
+  "status": "frozen",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": ""
+ },
+ {
+  "name": "AWS 3C",
+  "slug": "aws-3c",
+  "category": "Tech",
+  "status": "frozen",
+  "president": "",
+  "president_tg": "",
+  "telegram_url": ""
+ }
+]
