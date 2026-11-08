@@ -29,7 +29,7 @@ services:
       - key: ADMIN_EMAILS
         value: 240089@astanait.edu.kz
       - key: PUBLIC_URL
-        sync: false
+        value: https://campus-radar-nb3x.onrender.com
       - key: TELEGRAM_BOT_TOKEN
         sync: false
       - key: DEMO_MODE
