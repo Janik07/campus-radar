@@ -438,6 +438,15 @@ api.all('/cron/tick', wrap(async (req, res) => {
 
 api.get('/health', (_req, res) => res.json({ ok: true }));
 
+// Public keep-alive: wakes the free server and sends due reminders. Safe to call often:
+// reminders are recorded in reminders_sent, so nothing is ever sent twice.
+let lastPing = 0;
+api.get('/ping', wrap(async (_req, res) => {
+  if (Date.now() - lastPing < 60e3) return res.json({ ok: true, skipped: true });
+  lastPing = Date.now();
+  res.json({ ok: true, ...(await runReminders()) });
+}));
+
 // Error handler for the API.
 api.use((err, _req, res, _next) => {
   if (err.status) return res.status(err.status).json({ error: err.message });

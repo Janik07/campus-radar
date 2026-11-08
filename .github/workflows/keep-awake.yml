@@ -1,0 +1,11 @@
+# Keeps the free Render instance awake and triggers Telegram reminders on time.
+name: keep-awake
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -fsS --max-time 90 https://campus-radar-nb3x.onrender.com/api/ping || true
