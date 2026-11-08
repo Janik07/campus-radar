@@ -46,7 +46,7 @@ export default function Analytics() {
       <div className="dash-grid">
         <section className="card panel">
           <h2>Attendance by club</h2>
-          <div className="legend"><span><i style={{ background: 'hsl(14 90% 86%)' }} />Registered</span><span><i style={{ background: 'hsl(14 85% 56%)' }} />Attended</span></div>
+          <div className="legend"><span><i style={{ background: '#d9dcea' }} />Light bar: registered</span><span><i style={{ background: '#646a86' }} />Bright bar: attended (QR check-in)</span></div>
           <div className="hbars">
             {d.clubs.map(c => (
               <div className="hbar" key={c.id} style={{ '--h': CATEGORY_HUE[c.category] ?? 14 }}>

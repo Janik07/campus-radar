@@ -304,7 +304,8 @@ img { max-width: 100%; display: block; }
   .org-stats { grid-column: 3; grid-row: 1; }
   .org-actions { grid-column: 1 / -1; justify-content: flex-start; }
 }
-.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 860px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
 .stat { padding: 16px 18px; display: flex; flex-direction: column; gap: 2px; position: relative; overflow: hidden; }
 .stat b { font-family: var(--f-display); font-size: 1.9rem; font-weight: 700; }
 .stat span { color: var(--muted); font-size: .86rem; }
@@ -318,6 +319,7 @@ img { max-width: 100%; display: block; }
 .table td { padding: 11px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 .table tr:last-child td { border-bottom: 0; }
 .table tr.checked td { background: #f6fdf8; }
+@media (max-width: 860px) { .table .hide-narrow { display: none; } }
 .checkin-box { padding: 18px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; background: linear-gradient(120deg, #fff, var(--teal-soft)); }
 @media (max-width: 640px) { .checkin-box { grid-template-columns: 1fr; } }
 .checkin-box form { display: flex; gap: 8px; }

@@ -80,13 +80,13 @@ export default function Participants() {
       {list.length === 0 ? <Empty title="Nobody has registered yet" /> : (
         <div className="card table-wrap">
           <table className="table">
-            <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Status</th><th>Registered</th><th>Check-in</th></tr></thead>
+            <thead><tr><th>#</th><th>Name</th><th className="hide-narrow">Email</th><th>Status</th><th className="hide-narrow">Registered</th><th>Check-in</th></tr></thead>
             <tbody>
               {list.map((p, i) => (
                 <tr key={p.email} className={p.checked_in_at ? 'checked' : ''}>
-                  <td className="mono">{i + 1}</td><td><b>{p.name}</b></td><td className="muted">{p.email}</td>
+                  <td className="mono">{i + 1}</td><td><b>{p.name}</b></td><td className="muted hide-narrow">{p.email}</td>
                   <td>{p.status === 'going' ? <span className="badge badge-ok">Going</span> : <span className="badge badge-warn">Waitlist</span>}</td>
-                  <td className="muted small">{shortDate(p.created_at)}, {timeOf(p.created_at)}</td>
+                  <td className="muted small hide-narrow">{shortDate(p.created_at)}, {timeOf(p.created_at)}</td>
                   <td>{p.status === 'going' && (p.checked_in_at
                     ? <button className="btn btn-sm btn-follow" aria-pressed="true" onClick={() => toggle(p)}><Icon name="check" size={14} />{timeOf(p.checked_in_at)}</button>
                     : <button className="btn btn-sm" onClick={() => toggle(p)}>Check in</button>)}</td>
