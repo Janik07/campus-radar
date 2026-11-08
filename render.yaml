@@ -1,9 +1,17 @@
-# Render Blueprint: one web service (API + website + Telegram bot).
+# Render Blueprint: PostgreSQL database + one web service (API + website + Telegram bot).
+databases:
+  - name: campus-radar-db
+    plan: free
+    region: frankfurt
+    databaseName: radar
+    user: radar
+
 services:
   - type: web
     name: campus-radar
     runtime: node
     plan: free
+    region: frankfurt
     buildCommand: npm install && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
@@ -11,14 +19,16 @@ services:
       - key: NODE_VERSION
         value: "22"
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: campus-radar-db
+          property: connectionString
       - key: JWT_SECRET
         generateValue: true
       - key: CRON_SECRET
         generateValue: true
-      - key: PUBLIC_URL
-        sync: false
       - key: ADMIN_EMAILS
+        value: 240089@astanait.edu.kz
+      - key: PUBLIC_URL
         sync: false
       - key: TELEGRAM_BOT_TOKEN
         sync: false
