@@ -41,13 +41,16 @@ export default function Login() {
     } catch (err) { setError(err.message); } finally { setBusy(false); }
   };
 
+  const art = Object.values(meta?.categoryPhotos || {}).slice(0, 4);
   return (
+    <div className="auth-wrap">
+    <div className="auth-art" aria-hidden="true">{art.map(u => <img key={u} src={u.replace(/w=\d+/, 'w=500')} alt="" />)}</div>
     <div className="auth card">
       <Logo size={40} />
       {step === 'email' ? (
         <form onSubmit={requestCode} className="form">
           <h1>Sign in</h1>
-          <p className="muted">Campus Radar is only for AITU students and staff. We’ll send a 6-digit code to your university email.</p>
+          <p className="muted">Join 40+ AITU clubs in one place. Campus Radar is only for AITU students and staff — we’ll send a 6-digit code to your university email.</p>
           <label className="field">
             <span>University email</span>
             <div className="input-suffix">
@@ -80,6 +83,7 @@ export default function Login() {
           <button type="button" className="btn btn-ghost btn-block" onClick={() => { setStep('email'); setCode(''); setError(''); }}>Use another email</button>
         </form>
       )}
+    </div>
     </div>
   );
 }

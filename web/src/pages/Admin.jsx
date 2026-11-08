@@ -42,12 +42,12 @@ export default function Admin() {
   const s = data.stats;
   return (
     <>
-      <h1 className="page-title">Administration</h1>
+      <div className="title-row"><h1 className="page-title">Administration</h1><a className="btn btn-primary" href="/admin/stats">Attendance dashboard</a></div>
       <div className="stat-row">
-        <div className="card stat"><b>{s.users}</b><span>users</span></div>
-        <div className="card stat"><b>{s.events}</b><span>published events</span></div>
-        <div className="card stat"><b>{s.registrations}</b><span>registrations</span></div>
-        <div className="card stat"><b>{s.telegram}</b><span>Telegram connected</span></div>
+        <div className="card stat c1"><b>{s.users}</b><span>users</span></div>
+        <div className="card stat c2"><b>{s.events}</b><span>published events</span></div>
+        <div className="card stat c3"><b>{s.registrations}</b><span>registrations</span></div>
+        <div className="card stat c4"><b>{s.telegram}</b><span>Telegram connected</span></div>
       </div>
 
       <section className="card settings-block">

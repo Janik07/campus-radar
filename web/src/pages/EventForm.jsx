@@ -15,7 +15,7 @@ export default function EventForm() {
   const toast = useToast();
   const nav = useNavigate();
   const [clubList, setClubList] = useState(null);
-  const [f, setF] = useState({ clubId: '', title: '', description: '', category: '', location: '', date: '', start: '18:00', end: '20:00', limited: false, capacity: 30 });
+  const [f, setF] = useState({ clubId: '', title: '', description: '', category: '', location: '', date: '', start: '18:00', end: '20:00', limited: false, capacity: 30, imageUrl: '' });
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const [loaded, setLoaded] = useState(!editing);
@@ -35,7 +35,7 @@ export default function EventForm() {
     api(`/events/${id}`).then(({ event: e }) => {
       const s = fromIso(e.startsAt), en = fromIso(e.endsAt);
       setF({ clubId: e.club.id, title: e.title, description: e.description, category: e.category, location: e.location,
-        date: s.date, start: s.time, end: en.time || '', limited: e.capacity != null, capacity: e.capacity ?? 30 });
+        date: s.date, start: s.time, end: en.time || '', limited: e.capacity != null, capacity: e.capacity ?? 30, imageUrl: e.hasOwnImage ? e.imageUrl : '' });
       setLoaded(true);
     }).catch(err => setError(err.message));
   }, [id]); // eslint-disable-line
@@ -44,6 +44,7 @@ export default function EventForm() {
   if (!loaded || !clubList) return <div className="center"><Spinner /></div>;
   if (clubList.length === 0) return <Navigate to="/organizer" replace />;
 
+  const posterOptions = Object.values(meta?.categoryPhotos || {});
   const set = k => e => setF(s => ({ ...s, [k]: e.target.type === 'checkbox' ? e.target.checked : e.target.value }));
   const onClub = e => {
     const c = clubList.find(x => String(x.id) === e.target.value);
@@ -59,7 +60,7 @@ export default function EventForm() {
     if (endsAt && new Date(endsAt) <= new Date(startsAt)) endsAt = new Date(new Date(endsAt).getTime() + 864e5).toISOString(); // ends after midnight
     const body = {
       clubId: Number(f.clubId), title: f.title, description: f.description, category: f.category, location: f.location,
-      startsAt, endsAt, capacity: f.limited ? Number(f.capacity) : null,
+      startsAt, endsAt, capacity: f.limited ? Number(f.capacity) : null, imageUrl: f.imageUrl.trim(),
     };
     setBusy(true);
     try {
@@ -108,6 +109,17 @@ export default function EventForm() {
               <small className="muted">When places run out, students join a waitlist and move up automatically if someone cancels.</small>
             </label>
           )}
+        </div>
+        <div className="field"><span>Poster</span>
+          <div className="poster-picker">
+            {posterOptions.map(u => (
+              <button type="button" key={u} aria-pressed={f.imageUrl === u} onClick={() => setF(s => ({ ...s, imageUrl: s.imageUrl === u ? '' : u }))}>
+                <img src={u.replace(/w=\d+/, 'w=300')} alt="" />
+              </button>
+            ))}
+          </div>
+          <input id="ef-img" type="url" placeholder="…or paste a link to your poster (https://…)" value={f.imageUrl} onChange={set('imageUrl')} />
+          <small className="muted">Without a poster the event uses a photo for its category.</small>
         </div>
         <label className="field"><span>Description</span>
           <textarea id="ef-desc" rows={6} maxLength={4000} value={f.description} onChange={set('description')} placeholder="What will happen, what to bring, who it is for." />

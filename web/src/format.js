@@ -8,6 +8,7 @@ export const longDate = d => fmt({ weekday: 'long', day: 'numeric', month: 'long
 export const shortDate = d => fmt({ weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(d));
 export const dayNum = d => fmt({ day: 'numeric' }).format(new Date(d));
 export const monthShort = d => fmt({ month: 'short' }).format(new Date(d));
+export const weekdayShort = d => fmt({ weekday: 'short' }).format(new Date(d));
 
 export function dayLabel(d) {
   const k = dayKey(d);
@@ -39,5 +40,5 @@ export function googleCalendarUrl(ev) {
 }
 
 export const CATEGORY_HUE = {
-  Tech: 210, Sport: 25, Games: 280, Arts: 330, Music: 300, Culture: 45, Intellectual: 190, Social: 150, Media: 0, Career: 95,
+  Tech: 215, Sport: 18, Games: 265, Arts: 330, Music: 295, Culture: 40, Intellectual: 190, Social: 150, Media: 350, Career: 100,
 };

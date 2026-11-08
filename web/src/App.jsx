@@ -13,6 +13,8 @@ import Organizer from './pages/Organizer.jsx';
 import EventForm from './pages/EventForm.jsx';
 import Participants from './pages/Participants.jsx';
 import Admin from './pages/Admin.jsx';
+import Analytics from './pages/Analytics.jsx';
+import CheckIn from './pages/CheckIn.jsx';
 
 function Shell() {
   const { loading, user, clubs } = useSession();
@@ -30,7 +32,8 @@ function Shell() {
             <NavLink to="/clubs">Clubs</NavLink>
             {user && <NavLink to="/my">My events</NavLink>}
             {isOrganizer && <NavLink to="/organizer">Organiser</NavLink>}
-            {user?.role === 'admin' && <NavLink to="/admin">Admin</NavLink>}
+            {user?.role === 'admin' && <NavLink to="/admin/stats">Dashboard</NavLink>}
+            {user?.role === 'admin' && <NavLink to="/admin" end>Admin</NavLink>}
           </nav>
           <div className="topbar-right">
             {user
@@ -55,6 +58,8 @@ function Shell() {
             <Route path="/organizer/events/:id/edit" element={<EventForm />} />
             <Route path="/organizer/events/:id/participants" element={<Participants />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/stats" element={<Analytics />} />
+            <Route path="/checkin/:token" element={<CheckIn />} />
             <Route path="*" element={<div className="empty"><h3>Page not found</h3><Link to="/">Back to events</Link></div>} />
           </Routes>
         )}
@@ -69,7 +74,8 @@ function Shell() {
       </nav>
 
       <footer className="wrap footer">
-        Campus Radar · a student project for AITU · Team project, Project Management course
+        <span>Campus Radar · every AITU club event in one place</span>
+        <span>Team project · Project Management course · SE-2414</span>
       </footer>
     </>
   );

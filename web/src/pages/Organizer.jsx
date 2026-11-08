@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { api } from '../api.js';
 import { useSession, useToast } from '../session.jsx';
-import { CategoryTag, Empty, Spinner } from '../components.jsx';
+import { CategoryTag, Empty, Spinner, thumb } from '../components.jsx';
 import { shortDate, timeOf } from '../format.js';
 
 export default function Organizer() {
@@ -32,6 +32,7 @@ export default function Organizer() {
 
   const Row = ({ e }) => (
     <div className={`card org-row ${e.status === 'cancelled' ? 'is-cancelled' : ''}`}>
+      <img src={thumb(e.imageUrl, 200)} alt="" loading="lazy" />
       <div className="org-when"><b>{shortDate(e.startsAt)}</b><span className="mono">{timeOf(e.startsAt)}</span></div>
       <div className="org-main">
         <Link to={`/events/${e.id}`} className="org-title">{e.title}</Link>
@@ -39,7 +40,7 @@ export default function Organizer() {
       </div>
       <div className="org-stats">
         <b>{e.goingCount}{e.capacity != null && <span className="muted">/{e.capacity}</span>}</b>
-        <span className="small muted">{e.waitlistCount ? `${e.waitlistCount} waiting` : 'registered'}</span>
+        <span className="small muted">{new Date(e.startsAt) < now ? `${e.checkedInCount} came` : e.waitlistCount ? `${e.waitlistCount} waiting` : 'registered'}</span>
       </div>
       <div className="org-actions">
         {e.status === 'cancelled' ? <span className="badge badge-bad">Cancelled</span> : (
@@ -51,7 +52,7 @@ export default function Organizer() {
             </>
           ) : (
             <>
-              <Link className="btn btn-sm" to={`/organizer/events/${e.id}/participants`}>Participants</Link>
+              <Link className="btn btn-sm btn-soft" to={`/organizer/events/${e.id}/participants`}>Check-in</Link>
               <Link className="btn btn-ghost btn-sm" to={`/organizer/events/${e.id}/edit`}>Edit</Link>
               {new Date(e.startsAt) > now && <button className="btn btn-ghost btn-sm" onClick={() => setConfirmId(e.id)}>Cancel</button>}
             </>

@@ -81,3 +81,24 @@ CREATE TABLE IF NOT EXISTS reminders_sent (
   sent_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
   PRIMARY KEY (event_id, user_id, kind)
 );
+
+-- v2: posters, demo flag, follows, check-in
+ALTER TABLE events ADD COLUMN IF NOT EXISTS image_url TEXT NOT NULL DEFAULT '';
+ALTER TABLE events ADD COLUMN IF NOT EXISTS is_demo BOOLEAN NOT NULL DEFAULT false;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS is_demo BOOLEAN NOT NULL DEFAULT false;
+ALTER TABLE registrations ADD COLUMN IF NOT EXISTS checkin_code TEXT;
+ALTER TABLE registrations ADD COLUMN IF NOT EXISTS checkin_token TEXT UNIQUE;
+ALTER TABLE registrations ADD COLUMN IF NOT EXISTS checked_in_at TIMESTAMPTZ;
+
+-- US-12: students follow clubs
+CREATE TABLE IF NOT EXISTS club_follows (
+  user_id     INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  club_id     INT NOT NULL REFERENCES clubs(id) ON DELETE CASCADE,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, club_id)
+);
+
+CREATE TABLE IF NOT EXISTS app_meta (
+  key    TEXT PRIMARY KEY,
+  value  TEXT NOT NULL
+);

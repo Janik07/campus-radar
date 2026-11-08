@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 // US-06 / US-07: one-tap registration with participant limit and waitlist.
 import { tx, one } from './db.js';
 import { notifyUser } from './telegram.js';
@@ -16,10 +17,13 @@ export async function register(eventId, userId) {
 
     const { n } = await c.one(`SELECT count(*)::int AS n FROM registrations WHERE event_id=$1 AND status='going'`, [eventId]);
     const status = ev.capacity == null || n < ev.capacity ? 'going' : 'waitlist';
+    // Every registration gets a ticket: a QR token and a 6-digit code for check-in (US-14).
     const reg = await c.one(
-      `INSERT INTO registrations (event_id, user_id, status) VALUES ($1,$2,$3)
-       ON CONFLICT (event_id, user_id) DO UPDATE SET status=$3, updated_at=now() RETURNING *`,
-      [eventId, userId, status]);
+      `INSERT INTO registrations (event_id, user_id, status, checkin_code, checkin_token) VALUES ($1,$2,$3,$4,$5)
+       ON CONFLICT (event_id, user_id) DO UPDATE SET status=$3, updated_at=now(),
+         checkin_code=coalesce(registrations.checkin_code,$4), checkin_token=coalesce(registrations.checkin_token,$5)
+       RETURNING *`,
+      [eventId, userId, status, String(crypto.randomInt(100000, 1000000)), crypto.randomBytes(12).toString('base64url')]);
     return describe(c, ev, reg);
   });
 }

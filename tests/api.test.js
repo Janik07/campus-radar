@@ -136,6 +136,43 @@ await test('calendar file is generated', async () => {
   assert.match(r.data, /BEGIN:VEVENT/);
 });
 
+await test('ticket: QR and 6-digit code check-in by the organiser', async () => {
+  const ev = await s2.req('GET', `/api/events/${eventId}`);
+  assert.equal(ev.data.event.myStatus, 'going');
+  const code = ev.data.event.ticket.code;
+  assert.match(code, /^\d{6}$/);
+  const svg = await s2.req('GET', `/api/events/${eventId}/ticket.svg`);
+  assert.match(svg.data, /<svg/);
+  const denied = await s2.req('POST', `/api/organizer/events/${eventId}/checkin`, { code });
+  assert.equal(denied.status, 403);
+  const wrong = await org.req('POST', `/api/organizer/events/${eventId}/checkin`, { code: code === '111111' ? '222222' : '111111' });
+  assert.equal(wrong.status, 404);
+  const ok = await org.req('POST', `/api/organizer/events/${eventId}/checkin`, { code });
+  assert.equal(ok.data.name, 'Student Two');
+  const again = await org.req('POST', `/api/organizer/events/${eventId}/checkin`, { code });
+  assert.equal(again.data.already, true);
+  const p = await org.req('GET', `/api/organizer/events/${eventId}/participants`);
+  assert.ok(p.data.participants.find(x => x.name === 'Student Two').checked_in_at);
+});
+
+await test('follow a club: its events are marked and filterable', async () => {
+  const f = await s1.req('POST', `/api/clubs/${clubId}/follow`);
+  assert.equal(f.data.followed, true);
+  const feed = await s1.req('GET', '/api/events?following=1');
+  assert.ok(feed.data.events.length > 0 && feed.data.events.every(e => e.followed));
+  await s1.req('DELETE', `/api/clubs/${clubId}/follow`);
+});
+
+await test('attendance dashboard is for admins only and has data', async () => {
+  const d = await admin.req('GET', '/api/admin/analytics');
+  assert.equal(d.status, 200);
+  assert.ok(d.data.totals.events_held > 0 && d.data.totals.attended > 0);
+  const csv = await admin.req('GET', '/api/admin/analytics.csv');
+  assert.match(csv.data, /Attendance rate/);
+  const denied = await s1.req('GET', '/api/admin/analytics');
+  assert.equal(denied.status, 403);
+});
+
 await test('cancelled event disappears from the feed', async () => {
   const r = await org.req('POST', `/api/organizer/events/${eventId}/cancel`);
   assert.equal(r.status, 200);

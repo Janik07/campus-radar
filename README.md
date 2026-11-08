@@ -19,6 +19,9 @@ Team project for the Project Management course, Astana IT University.
 | US-09 Add to Google Calendar / .ics | Should | event page |
 | US-10 Export participants to CSV | Should | participants page |
 | US-11 Club catalogue (42 active AITU clubs) | Should | `/clubs` |
+| US-12 Follow clubs — their events come first | Should | `/clubs`, feed |
+| US-14 QR check-in with a 6-digit fallback code | Should | event page (ticket), participants page |
+| US-15 Attendance dashboard for student affairs, CSV export | Should | `/admin/stats` |
 
 ## Stack
 
@@ -31,7 +34,8 @@ Team project for the Project Management course, Astana IT University.
 server/
   index.js          app entry: migrations, bot, API, static site
   schema.sql        tables: clubs, users, events, registrations, reminders_sent …
-  migrate.js        creates tables, imports clubs from seed/clubs.json, demo events
+  migrate.js        creates tables, imports clubs from seed/clubs.json
+  demo.js           demo events with photos, demo students, past attendance
   auth.js           sign-in with a one-time code sent to @astanait.edu.kz
   registrations.js  registration, waitlist, promotion (row lock against double booking)
   routes.js         REST API
@@ -40,7 +44,7 @@ server/
 web/src/
   pages/            Feed, EventPage, Login, MyEvents, Settings, Clubs, ClubPage,
                     Organizer, EventForm, Participants, Admin
-tests/api.test.js   end-to-end API test (14 checks)
+tests/api.test.js   end-to-end API test (17 checks)
 ```
 
 ## Run locally

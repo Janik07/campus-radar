@@ -1,7 +1,7 @@
 {
   "name": "campus-radar",
   "version": "1.0.0",
-  "description": "Campus Radar \u2014 all AITU student events in one place",
+  "description": "Campus Radar — all AITU student events in one place",
   "scripts": {
     "start": "node server/index.js",
     "dev": "node --watch server/index.js",
@@ -16,6 +16,7 @@
     "grammy": "^1.46.0",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.23.1",
+    "qrcode": "^1.5.4",
     "zod": "^4.6.7"
   },
   "devDependencies": {
