@@ -19,7 +19,8 @@ import CheckIn from './pages/CheckIn.jsx';
 function Shell() {
   const { loading, user, clubs } = useSession();
   const { pathname } = useLocation();
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  // Braces matter: newer Chrome returns a Promise from scrollTo, and React would treat it as a cleanup function.
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
   const isOrganizer = user && (user.role === 'admin' || clubs.length > 0);
 
   return (
